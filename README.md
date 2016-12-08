@@ -5,31 +5,84 @@
 ## Contains
 
 - [x] Babel
-- [x] BrowserSync
+- [x] Browsersync
 - [ ] CSS Modules or CSS in JS
 - [x] React
-- [x] React Routor
 - [x] React Hot Module Reload
+- [x] React Routor
+- [ ] Redux
 - [x] Standard
-- [x] Wordpress 4.7+
+- [x] WordPress
 - [x] webpack
+- [x] VCCW
 - [x] yarn
 
-## Setup
 
-first time only.
+## Initial setup
 
+development environment uses [VCCW](http://vccw.cc/).  
+
+0. ```
+$ git clone git@github.com:blivesta/wp-react-spa-boilerplate.git`
 ```
+0. ```
+$ cd wp-react-spa-boilerplate
+```
+0. ```
 $ yarn run setup
 ```
+This command also installs VCCW.
+0. ```
+$ vagrant ssh
+$ wp theme activate wp-react-spa-boilerplate
+$ exit
+```
+0. ```
+$ yarn run start
+```
 
-Development
+### Result
+
+`src` -> `www/wordpress/wp-content/themes/wp-react-spa-boilerplate`
 
 ```
-$ yarn run develop
+|-- .vagrant/
+|-- node_modules/
+|-- provision/ (vccw)
+|-- src/ (theme source files)
+    |-- client/
+    |-- functions.php
+    |-- index.php
+    |-- ...
+|-- www/
+    |-- wordpess/
+        |-- wp-content/
+            |-- themes/
+                |-- wp-react-spa-boilerplate/
+                    |-- bundle.js
+                    |-- functions.php
+                    |-- index.php
+                    |-- ...
+|-- .editorconfig
+|-- .gitignore
+|-- config.js
+|-- Movefile
+|-- package.json
+|-- README.md
+|-- run.js
+|-- site.yml (vccw config file)
+|-- Vagrantfile (vccw)
+|-- webpack.config.js
+|-- yarn.lock
 ```
 
-Production
+## Usage
+
+```
+$ yarn run start
+```
+
+Production (compress)
 
 ```
 $ yarn run production
