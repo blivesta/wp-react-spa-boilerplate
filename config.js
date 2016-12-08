@@ -3,7 +3,7 @@ const pkg = require('./package.json')
 const yaml = require('js-yaml')
 
 const wpSettings = yaml.safeLoad(fs.readFileSync('site.yml', 'utf8'))
-const themeName = (wpSettings.theme ? wpSettings.theme : pkg.name)
+const themeName = pkg.name
 
 module.exports = {
   dirs: {

@@ -2,33 +2,13 @@
 *.sql
 .vagrant
 node_modules
-reaction-symlink
 
 # vccw
 provision
 Vagrantfile
 Movefile
 
-# Build files
-www/html/.*
-www/html/index*
-www/html/bundle*
-
-www/html/wp/.*
-www/html/wp/*.php
-www/html/wp/*.html
-www/html/wp/*.txt
-www/html/wp/wp-admin
-www/html/wp/wp-includes
-www/html/wp/wp-content/*.php
-www/html/wp/wp-content/ewww
-www/html/wp/wp-content/languages
-www/html/wp/wp-content/mu-plugins
-www/html/wp/wp-content/upgrade
-www/html/wp/wp-content/uploads
-www/html/wp/wp-content/plugins
-www/html/wp/wp-content/themes
-
+# WordPress
 www/wordpress/.*
 www/wordpress/*.php
 www/wordpress/*.html

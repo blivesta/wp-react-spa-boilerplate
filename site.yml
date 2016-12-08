@@ -55,20 +55,16 @@ db_host: localhost
 # Plugin's slug or url to the plugin's slug.
 #
 plugins:
-  - duplicate-post
-  - google-sitemap-generator
-  - markdown-on-save-improved
   - rest-api
   - simple-wp-sitemap
   - theme-check
-  - wp-fastest-cache
   - wp-multibyte-patch
 
 #
 # WordPress Default Theme
 # Theme's slug or url to the theme's .zip.
 #
-theme: 'wp-react-spa-boilerplate'
+# theme: 'wp-react-spa-boilerplate'
 
 #
 # WordPress Options
@@ -87,8 +83,8 @@ savequeries: false
 # Theme unit testing
 #
 theme_unit_test: true
-# theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
-theme_unit_test_uri: https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml
+theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
+# theme_unit_test_uri: https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml
 
 #
 # DB will be reset when provision
