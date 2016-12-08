@@ -4,7 +4,7 @@
   "description": "Theme boilerplate for WordPress using WP REST API and React.js",
   "private": true,
   "scripts": {
-    "develop": "node run develop",
+    "start": "node run start",
     "build": "node run build",
     "production": "node run build --production",
     "vccw:clone": "git clone https://github.com/vccw-team/vccw",
@@ -12,7 +12,7 @@
     "vccw:move": "cp -r ./vccw/provision ./provision && cp ./vccw/Vagrantfile ./Vagrantfile",
     "vccw:cleanup": "rm -rf ./vccw",
     "vccw": "yarn run vccw:clone && yarn run vccw:checkout && yarn run vccw:move && yarn run vccw:cleanup",
-    "setup": "yarn upgrade && yarn run build && yarn run vccw && vagrant up && yarn run develop",
+    "setup": "yarn upgrade && yarn run build && yarn run vccw && vagrant up",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

@@ -97,7 +97,7 @@ tasks.set('build', () => {
     .then(() => run('bundle'))
 })
 
-tasks.set('develop', () => {
+tasks.set('start', () => {
   return Promise.resolve()
     .then(() => run('clean'))
     .then(() => run('copy'))
