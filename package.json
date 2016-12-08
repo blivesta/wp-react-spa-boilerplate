@@ -12,7 +12,7 @@
     "vccw:move": "cp -r ./vccw/provision ./provision && cp ./vccw/Vagrantfile ./Vagrantfile",
     "vccw:cleanup": "rm -rf ./vccw",
     "vccw": "yarn run vccw:clone && yarn run vccw:checkout && yarn run vccw:move && yarn run vccw:cleanup",
-    "setup": "yarn upgrade && yarn run build && yarn run vccw && vagrant up && yarn run start",
+    "setup": "yarn upgrade && yarn run build && yarn run vccw && vagrant up && yarn run develop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
