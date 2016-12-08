@@ -22,22 +22,37 @@
 
 development environment uses [VCCW](http://vccw.cc/).  
 
-0. ```
+**1.**
+
+```
 $ git clone git@github.com:blivesta/wp-react-spa-boilerplate.git`
 ```
-0. ```
+
+**2.**
+
+```
 $ cd wp-react-spa-boilerplate
 ```
-0. ```
+
+**3.**
+
+```
 $ yarn run setup
 ```
+
 This command also installs VCCW.
-0. ```
+
+**4.**
+
+```
 $ vagrant ssh
 $ wp theme activate wp-react-spa-boilerplate
 $ exit
 ```
-0. ```
+
+**5.**
+
+```
 $ yarn run start
 ```
 
