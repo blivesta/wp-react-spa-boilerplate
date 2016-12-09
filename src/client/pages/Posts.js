@@ -16,7 +16,7 @@ class Posts extends Component {
   }
 
   componentDidMount (pageNum = 1) {
-    const api = `${WP_PARAMETERS.BASE_API}posts?filter[paged]=${pageNum}&filter[posts_per_page]=${WP_PARAMETERS.POSTS_PER_PAGE}`
+    const api = `${WP_PARAMETERS.BASE_API}posts?_embed&filter[paged]=${pageNum}&filter[posts_per_page]=${WP_PARAMETERS.POSTS_PER_PAGE}`
     axios.get(api, 'posts').then((response) => {
       this.setState({
         data: response.data
@@ -29,7 +29,7 @@ class Posts extends Component {
 
   render () {
     const node = this.state.data.map((data) => {
-      const url = `/archives/${data.slug}/`
+      const url = `/archives/${data.id}`
       return (
         <li key={data.id}>
           <Link to={url}>{data.title.rendered}</Link>

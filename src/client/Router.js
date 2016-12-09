@@ -28,7 +28,7 @@ class Root extends React.Component {
           <Route path='about' component={About} />
           {/* archives */}
           <Route path='archives' component={Posts} />
-          <Route path='archives/:slug' component={PostsDetail} />
+          <Route path='archives/:id' component={PostsDetail} />
           {/* Pages(page.php) */}
           <Route path='/:slug' component={Page} />
           {/* 404(404.php) */}

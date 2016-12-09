@@ -34,13 +34,11 @@ class PostsDetail extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`${WP_PARAMETERS.BASE_API}posts/?filter[name]=${this.props.params.slug}`).then((response) => {
-      console.log(response)
+    axios.get(`${WP_PARAMETERS.BASE_API}posts/${this.props.params.id}?_embed`).then((response) => {
       this.setState({
-        id: response.data[0].id,
-        title: response.data[0].title.rendered,
-        content: response.data[0].content.rendered,
-        slug: this.props.params.slug
+        id: response.data.id,
+        title: response.data.title.rendered,
+        content: response.data.content.rendered
       })
     })
     .catch((err) => {

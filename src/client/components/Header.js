@@ -11,10 +11,13 @@ const Header = (props) => {
       <nav id='primary'>
         <ul className='ListInline'>
           <li>
-            <Link to='/archives/'>Posts</Link>
+            <Link to='/archives'>Posts</Link>
           </li>
           <li>
-            <Link to='/about/'>About</Link>
+            <Link to='/sample-page'>Sample page</Link>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
           </li>
         </ul>
       </nav>
