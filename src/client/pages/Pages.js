@@ -35,7 +35,7 @@ class Page extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`${WP_PARAMETERS.BASE_API}/pages?_embed&filter[name]=${this.props.params.slug}`).then((response) => {
+    axios.get(`${WP_PARAMETERS.BASE_API}pages?_embed&filter[name]=${this.props.params.slug}`).then((response) => {
       this.setState({
         id: response.data[0].id,
         title: response.data[0].title.rendered,
