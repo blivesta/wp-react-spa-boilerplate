@@ -1,110 +1,78 @@
 # encoding: utf-8
 # vim: ft=ruby expandtab shiftwidth=2 tabstop=2
 
-#
 # General Settings
-#
-wp_box: miya0001/vccw
-chef_cookbook_path: ./provision
+wp_box: vccw-team/xenial64
 
-#
 # Virtual Machine Settings
-#
-linked_clone: true
+linked_clone: false
 memory: 2048
 cpus: 1
 
-#
 # Network Settings
-#
 hostname: wp-react-spa-boilerplate.dev
 ip: 192.168.33.168
-sync_folder: 'www/wordpress'
+synced_folder: wordpress
+document_root: /var/www/html
 
-#
 # WordPress Settings
-#
 version: latest
-lang: ja
+lang: en_US
 title: WRSB
 multisite: false
 rewrite_structure: /archives/%post_id%
 
-#
 # WordPress Path
-#
-document_root: '/var/www/wordpress'
 wp_siteurl: ''  # Path to the WP_SITEURL like "wp"
 wp_home: ''     # Path to the WP_HOME like "wp"
 
-#
 # WordPress User
-#
 admin_user: admin
 admin_pass: admin
 admin_email: vccw@example.com
 
-#
+# WordPress Options
+options:
+  blogdescription: ''
+
+# WordPress Multisite Options
+multisite_options: {}
+
 # WordPress Database
-#
 db_prefix: wp_
 db_host: localhost
+db_name: wordpress
+db_user: wordpress
+db_pass: wordpress
 
-#
 # WordPress Default Plugins
 # Plugin's slug or url to the plugin's slug.
-#
 plugins:
+  - debug-bar
   - rest-api
   - simple-wp-sitemap
   - theme-check
   - wp-multibyte-patch
 
-#
 # WordPress Default Theme
 # Theme's slug or url to the theme's .zip.
-#
-# theme: 'wp-react-spa-boilerplate'
+# theme: ''
 
-#
-# WordPress Options
-#
-options:
-  blogdescription: ''
-
-#
 # The values of wp-config.php
-#
 force_ssl_admin: false
 wp_debug: true
 savequeries: false
 
-#
+# Addtional PHP code in the wp-config.php
+extra_wp_config: |
+  // Addtional PHP code in the wp-config.php
+  // These lines are inserted by VCCW.
+  // You can place addtional PHP code here!
+
 # Theme unit testing
-#
 theme_unit_test: true
 theme_unit_test_uri: https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
 # theme_unit_test_uri: https://raw.githubusercontent.com/jawordpressorg/theme-test-data-ja/master/wordpress-theme-test-date-ja.xml
 
-#
 # DB will be reset when provision
-#
 reset_db_on_provision: true
-
-#
-# Are you hurrying a lot?
-#
-disable_vccw_cookbook: false
-
-
-#
-# User and Group
-#
-user: vagrant
-group: vagrant
-
-
-#
-# phpenv
-#
-php_version: default

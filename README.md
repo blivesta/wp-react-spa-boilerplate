@@ -20,12 +20,12 @@
 
 ## Initial setup
 
-development environment uses [VCCW](http://vccw.cc/).  
+development environment uses [VCCW v3](http://vccw.cc/).  
 
 **1.**
 
 ```
-$ git clone git@github.com:blivesta/wp-react-spa-boilerplate.git`
+$ git clone git@github.com:blivesta/wp-react-spa-boilerplate.git
 ```
 
 **2.**
@@ -40,25 +40,12 @@ $ cd wp-react-spa-boilerplate
 $ yarn run setup
 ```
 
-This command also installs VCCW.
+This command also installs [VCCW](http://vccw.cc/).
 
-**4.**
-
-```
-$ vagrant ssh
-$ wp theme activate wp-react-spa-boilerplate
-$ exit
-```
-
-**5.**
-
-```
-$ yarn run start
-```
 
 ### Result
 
-`src` -> `www/wordpress/wp-content/themes/wp-react-spa-boilerplate`
+`src` -> `wordpress/wp-content/themes/wp-react-spa-boilerplate`
 
 ```
 |-- .vagrant/
@@ -69,25 +56,27 @@ $ yarn run start
     |-- functions.php
     |-- index.php
     |-- ...
-|-- www/
-    |-- wordpess/
-        |-- wp-content/
-            |-- themes/
-                |-- wp-react-spa-boilerplate/
-                    |-- bundle.js
-                    |-- functions.php
-                    |-- index.php
-                    |-- ...
+|-- wordpess/
+    |-- wp-content/
+        |-- themes/
+            |-- wp-react-spa-boilerplate/
+                |-- bundle.js
+                |-- functions.php
+                |-- index.php
+                |-- ...
 |-- .editorconfig
 |-- .gitignore
+|-- ansible.cfg (vccw)
 |-- config.js
-|-- Movefile
+|-- Movefile (vccw)
 |-- package.json
+|-- provision-post.sh (vccw)
 |-- README.md
 |-- run.js
-|-- site.yml (vccw config file)
+|-- site.yml (vccw)
 |-- Vagrantfile (vccw)
 |-- webpack.config.js
+|-- wp-cli.yml (vccw)
 |-- yarn.lock
 ```
 

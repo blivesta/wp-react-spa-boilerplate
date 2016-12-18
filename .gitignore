@@ -1,25 +1,28 @@
 ~*
 *.sql
-.vagrant
 node_modules
 
-# vccw
+# VCCW
+.ansible
+.vagrant
+ansible.cfg
+Movefile
 provision
 Vagrantfile
-Movefile
+wp-cli.yml
 
 # WordPress
-www/wordpress/.*
-www/wordpress/*.php
-www/wordpress/*.html
-www/wordpress/*.txt
-www/wordpress/wp-admin
-www/wordpress/wp-includes
-www/wordpress/wp-content/*.php
-www/wordpress/wp-content/ewww
-www/wordpress/wp-content/languages
-www/wordpress/wp-content/mu-plugins
-www/wordpress/wp-content/upgrade
-www/wordpress/wp-content/uploads
-www/wordpress/wp-content/plugins
-www/wordpress/wp-content/themes
+wordpress/.*
+wordpress/*.php
+wordpress/*.html
+wordpress/*.txt
+wordpress/wp-admin
+wordpress/wp-includes
+wordpress/wp-content/*.php
+wordpress/wp-content/ewww
+wordpress/wp-content/languages
+wordpress/wp-content/mu-plugins
+wordpress/wp-content/upgrade
+wordpress/wp-content/uploads
+wordpress/wp-content/plugins
+wordpress/wp-content/themes

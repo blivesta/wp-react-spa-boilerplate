@@ -8,7 +8,7 @@ const themeName = pkg.name
 module.exports = {
   dirs: {
     src: './src',
-    dest: wpSettings.sync_folder + '/wp-content/themes/' + themeName
+    dest: wpSettings.synced_folder + '/wp-content/themes/' + themeName
   },
   wpSettings: wpSettings,
   url: wpSettings.hostname,

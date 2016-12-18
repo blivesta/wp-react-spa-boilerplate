@@ -8,11 +8,11 @@
     "build": "node run build",
     "production": "node run build --production",
     "vccw:clone": "git clone https://github.com/vccw-team/vccw",
-    "vccw:checkout": "cd vccw && git checkout refs/tags/2.21.0",
-    "vccw:move": "cp -r ./vccw/provision ./provision && cp ./vccw/Vagrantfile ./Vagrantfile",
-    "vccw:cleanup": "rm -rf ./vccw",
-    "vccw": "yarn run vccw:clone && yarn run vccw:checkout && yarn run vccw:move && yarn run vccw:cleanup",
-    "setup": "yarn upgrade && yarn run build && yarn run vccw && vagrant up",
+    "vccw:checkout": "cd vccw && git checkout refs/tags/3.0.5",
+    "vccw:copy": "cp -r ./vccw/provision ./provision && cp ./vccw/Vagrantfile ./Vagrantfile && cp ./vccw/ansible.cfg ./ansible.cfg",
+    "vccw:remove": "rm -rf ./vccw",
+    "vccw": "yarn run vccw:clone && yarn run vccw:checkout && yarn run vccw:copy && yarn run vccw:remove",
+    "setup": "yarn install && yarn run build && yarn run vccw && vagrant up && yarn run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
