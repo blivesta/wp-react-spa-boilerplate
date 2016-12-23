@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Link } from 'react-router'
 import DocumentTitle from 'react-document-title'
-import axios from 'axios'
+import Wpapi from 'wpapi'
 
 const WP_PARAMETERS = global.WP_PARAMETERS
+const wp = new Wpapi({ endpoint: WP_PARAMETERS.API })
 
 class Posts extends Component {
   constructor () {
@@ -16,13 +17,11 @@ class Posts extends Component {
   }
 
   componentDidMount (pageNum = 1) {
-    const api = `${WP_PARAMETERS.BASE_API}posts?_embed&filter[paged]=${pageNum}&filter[posts_per_page]=${WP_PARAMETERS.POSTS_PER_PAGE}`
-    axios.get(api, 'posts').then((response) => {
+    wp.posts().page(pageNum).perPage(WP_PARAMETERS.POSTS_PER_PAGE).embed().then((res) => {
       this.setState({
-        data: response.data
+        data: res
       })
-    })
-    .catch((err) => {
+    }).catch((err) => {
       console.log(err)
     })
   }

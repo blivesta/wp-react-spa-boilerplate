@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import DocumentTitle from 'react-document-title'
-import axios from 'axios'
+import Wpapi from 'wpapi'
 
 const WP_PARAMETERS = global.WP_PARAMETERS
+const wp = new Wpapi({ endpoint: WP_PARAMETERS.API })
 
 class PostsDetail extends React.Component {
 
@@ -34,14 +35,14 @@ class PostsDetail extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`${WP_PARAMETERS.BASE_API}posts/${this.props.params.id}?_embed`).then((response) => {
+    wp.posts().id(this.props.params.id).embed().then((res) => {
+      console.log(res)
       this.setState({
-        id: response.data.id,
-        title: response.data.title.rendered,
-        content: response.data.content.rendered
+        id: res.id,
+        title: res.title.rendered,
+        content: res.content.rendered
       })
-    })
-    .catch((err) => {
+    }).catch((err) => {
       console.log(err)
     })
   }

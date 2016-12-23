@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import DocumentTitle from 'react-document-title'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import axios from 'axios'
+import Wpapi from 'wpapi'
 
 const WP_PARAMETERS = global.WP_PARAMETERS
+const wp = new Wpapi({ endpoint: WP_PARAMETERS.API })
 
 class Frontpage extends Component {
 
@@ -38,14 +39,13 @@ class Frontpage extends Component {
 
   getContent () {
     if (WP_PARAMETERS.PAGE_ON_FRONT !== '0') {
-      axios.get(`${WP_PARAMETERS.BASE_API}pages/${WP_PARAMETERS.PAGE_ON_FRONT}`).then((response) => {
+      wp.pages().id(WP_PARAMETERS.PAGE_ON_FRONT).embed().then((res) => {
         this.setState({
-          id: response.data.id,
-          title: response.data.title.rendered,
-          content: response.data.content.rendered
+          id: res.id,
+          title: res.title.rendered,
+          content: res.content.rendered
         })
-      })
-      .catch((err) => {
+      }).catch((err) => {
         console.log(err)
       })
     } else {

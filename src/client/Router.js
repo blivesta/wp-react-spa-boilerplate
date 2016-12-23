@@ -24,14 +24,10 @@ class Root extends React.Component {
       <Router history={browserHistory} onUpdate={this._logPageView}>
         <Route path='/' component={Defalult}>
           <IndexRoute component={Frontpage} />
-          {/* about */}
           <Route path='about' component={About} />
-          {/* archives */}
+          <Route path='sample-page' component={Page} />
           <Route path='archives' component={Posts} />
           <Route path='archives/:id' component={PostsDetail} />
-          {/* Pages(page.php) */}
-          <Route path='/:slug' component={Page} />
-          {/* 404(404.php) */}
           <Route path='*' component={NoMatch} />
         </Route>
       </Router>

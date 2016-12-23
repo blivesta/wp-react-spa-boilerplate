@@ -22,8 +22,8 @@ const webpackConfig = {
     preLoaders: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'standard'
+        loader: 'standard',
+        exclude: /node_modules/
       }
     ],
     loaders: [
@@ -31,6 +31,9 @@ const webpackConfig = {
         test: /\.js$/,
         loader: 'babel',
         exclude: /node_modules/
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },

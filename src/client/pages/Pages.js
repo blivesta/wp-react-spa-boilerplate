@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import DocumentTitle from 'react-document-title'
-import axios from 'axios'
+import Wpapi from 'wpapi'
 
 const WP_PARAMETERS = global.WP_PARAMETERS
+const wp = new Wpapi({ endpoint: WP_PARAMETERS.API })
 
 class Page extends React.Component {
 
@@ -19,7 +20,7 @@ class Page extends React.Component {
     return (
       <DocumentTitle title={this.state.title}>
         <main className='Transition'>
-          <h2 key='aaa'>{this.state.title}</h2>
+          <h2>{this.state.title}</h2>
           <ReactCSSTransitionGroup
             className=''
             component='section'
@@ -35,14 +36,13 @@ class Page extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`${WP_PARAMETERS.BASE_API}pages?_embed&filter[name]=${this.props.params.slug}`).then((response) => {
+    wp.pages().slug(this.props.params.slug).embed().then((res) => {
       this.setState({
-        id: response.data[0].id,
-        title: response.data[0].title.rendered,
-        content: response.data[0].content.rendered
+        id: res[0].id,
+        title: res[0].title.rendered,
+        content: res[0].content.rendered
       })
-    })
-    .catch((err) => {
+    }).catch((err) => {
       console.log(err)
     })
   }

@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node run start",
-    "build": "node run build",
-    "production": "node run build --production",
+    "build": "node run build --production",
     "vccw:clone": "git clone https://github.com/vccw-team/vccw",
     "vccw:checkout": "cd vccw && git checkout refs/tags/3.0.5",
     "vccw:copy": "cp -r ./vccw/provision ./provision && cp ./vccw/Vagrantfile ./Vagrantfile && cp ./vccw/ansible.cfg ./ansible.cfg",
@@ -16,7 +15,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "axios": "^0.14.0",
     "babel-polyfill": "^6.16.0",
     "normalize.css": "^5.0.0",
     "react": "^15.3.2",
@@ -25,7 +23,8 @@
     "react-dom": "^15.3.2",
     "react-ga": "^2.1.2",
     "react-router": "^3.0.0",
-    "sircus": "^3.0.0"
+    "sircus": "^3.0.0",
+    "wpapi": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.20",
@@ -38,7 +37,8 @@
     "chokidar": "^1.6.1",
     "copy": "^0.3.0",
     "del": "^2.2.2",
-    "react-hot-loader": "^3.0.0-beta.1",
+    "json-loader": "^0.5.4",
+    "react-hot-loader": "^3.0.0-beta.6",
     "standard": "^8.3.0",
     "standard-loader": "^5.0.0",
     "webpack": "^1.13.3",

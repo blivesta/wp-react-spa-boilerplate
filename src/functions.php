@@ -26,7 +26,7 @@ class Main {
 		  'SITE_TITLE' => get_bloginfo('name'),
 		  'DESCRIPTION' => get_bloginfo('description'),
 		  'SITE_URL' => get_site_url(),
-		  'BASE_API' => get_site_url() . '/wp-json/wp/v2/',
+		  'API' => get_site_url() . '/wp-json/',
 			'POSTS_PER_PAGE' => get_option('posts_per_page'),
 		  'PAGE_ON_FRONT' => get_option('page_on_front')
 		);
