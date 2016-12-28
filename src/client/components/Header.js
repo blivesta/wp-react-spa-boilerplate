@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router'
-const WP_PARAMETERS = global.WP_PARAMETERS
+import { WP_PARAMS } from '../constants'
 
 const Header = (props) => {
   return (
     <header>
       <h1>
-        <Link to='/'>{WP_PARAMETERS.SITE_TITLE}</Link>
+        <Link to='/'>{WP_PARAMS.SITE_TITLE}</Link>
       </h1>
       <nav id='primary'>
         <ul className='ListInline'>

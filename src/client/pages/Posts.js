@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Link } from 'react-router'
 import DocumentTitle from 'react-document-title'
-import Wpapi from 'wpapi'
-
-const WP_PARAMETERS = global.WP_PARAMETERS
-const wp = new Wpapi({ endpoint: WP_PARAMETERS.API })
+import api from '../middleware/api'
 
 class Posts extends Component {
   constructor () {
@@ -17,7 +14,7 @@ class Posts extends Component {
   }
 
   componentDidMount (pageNum = 1) {
-    wp.posts().page(pageNum).perPage(WP_PARAMETERS.POSTS_PER_PAGE).embed().then((res) => {
+    api('posts', pageNum).then((res) => {
       this.setState({
         data: res
       })
@@ -52,7 +49,6 @@ class Posts extends Component {
       </DocumentTitle>
     )
   }
-
 }
 
 export default Posts

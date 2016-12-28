@@ -1,10 +1,7 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import DocumentTitle from 'react-document-title'
-import Wpapi from 'wpapi'
-
-const WP_PARAMETERS = global.WP_PARAMETERS
-const wp = new Wpapi({ endpoint: WP_PARAMETERS.API })
+import api from '../middleware/api'
 
 class Page extends React.Component {
 
@@ -15,8 +12,19 @@ class Page extends React.Component {
     }
   }
 
+  componentDidMount () {
+    api('page', this.props.route.path).then((res) => {
+      this.setState({
+        id: res[0].id,
+        title: res[0].title.rendered,
+        content: res[0].content.rendered
+      })
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
+
   render () {
-    console.log('render')
     return (
       <DocumentTitle title={this.state.title}>
         <main className='Transition'>
@@ -34,19 +42,6 @@ class Page extends React.Component {
       </DocumentTitle>
     )
   }
-
-  componentDidMount () {
-    wp.pages().slug(this.props.params.slug).embed().then((res) => {
-      this.setState({
-        id: res[0].id,
-        title: res[0].title.rendered,
-        content: res[0].content.rendered
-      })
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
-
 }
 
 export default Page

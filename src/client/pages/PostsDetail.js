@@ -1,10 +1,7 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import DocumentTitle from 'react-document-title'
-import Wpapi from 'wpapi'
-
-const WP_PARAMETERS = global.WP_PARAMETERS
-const wp = new Wpapi({ endpoint: WP_PARAMETERS.API })
+import api from '../middleware/api'
 
 class PostsDetail extends React.Component {
 
@@ -14,6 +11,19 @@ class PostsDetail extends React.Component {
       title: '',
       content: ''
     }
+  }
+
+  componentDidMount () {
+    api('single', this.props.params.id).then((res) => {
+      console.log(res)
+      this.setState({
+        id: res.id,
+        title: res.title.rendered,
+        content: res.content.rendered
+      })
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 
   render () {
@@ -33,20 +43,6 @@ class PostsDetail extends React.Component {
       </DocumentTitle>
     )
   }
-
-  componentDidMount () {
-    wp.posts().id(this.props.params.id).embed().then((res) => {
-      console.log(res)
-      this.setState({
-        id: res.id,
-        title: res.title.rendered,
-        content: res.content.rendered
-      })
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
-
 }
 
 export default PostsDetail

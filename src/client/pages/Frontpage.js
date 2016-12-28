@@ -1,18 +1,34 @@
 import React, { Component } from 'react'
 import DocumentTitle from 'react-document-title'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import Wpapi from 'wpapi'
-
-const WP_PARAMETERS = global.WP_PARAMETERS
-const wp = new Wpapi({ endpoint: WP_PARAMETERS.API })
+import { WP_PARAMS } from '../constants'
+import api from '../middleware/api'
 
 class Frontpage extends Component {
-
   constructor (props) {
     super(props)
     this.state = {
       title: 'Home',
       content: ''
+    }
+  }
+
+  componentDidMount () {
+    if (WP_PARAMS.PAGE_ON_FRONT !== '0') {
+      api('frontPage').then((res) => {
+        this.setState({
+          id: res.id,
+          title: res.title.rendered,
+          content: res.content.rendered
+        })
+      }).catch((err) => {
+        console.log(err)
+      })
+    } else {
+      this.setState({
+        title: 'Frontpage',
+        content: 'No static Frontpage is selected.'
+      })
     }
   }
 
@@ -32,30 +48,6 @@ class Frontpage extends Component {
       </DocumentTitle>
     )
   }
-
-  componentDidMount () {
-    this.getContent()
-  }
-
-  getContent () {
-    if (WP_PARAMETERS.PAGE_ON_FRONT !== '0') {
-      wp.pages().id(WP_PARAMETERS.PAGE_ON_FRONT).embed().then((res) => {
-        this.setState({
-          id: res.id,
-          title: res.title.rendered,
-          content: res.content.rendered
-        })
-      }).catch((err) => {
-        console.log(err)
-      })
-    } else {
-      this.setState({
-        title: 'Frontpage',
-        content: 'No static Frontpage is selected.'
-      })
-    }
-  }
-
 }
 
 export default Frontpage
