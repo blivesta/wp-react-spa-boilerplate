@@ -1,23 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { WP_PARAMS } from '../constants'
+import { WP_SITE_TITLE } from '../constants'
 
-const Header = (props) => {
+const Header = () => {
   return (
     <header>
       <h1>
-        <Link to='/'>{WP_PARAMS.SITE_TITLE}</Link>
+        <Link to='/'>{WP_SITE_TITLE}</Link>
       </h1>
-      <nav id='primary'>
+      <nav>
         <ul className='ListInline'>
           <li>
             <Link to='/archives'>Posts</Link>
           </li>
           <li>
             <Link to='/sample-page'>Sample page</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
           </li>
         </ul>
       </nav>

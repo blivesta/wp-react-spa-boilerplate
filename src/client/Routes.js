@@ -1,32 +1,28 @@
 import React from 'react'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute } from 'react-router'
 import ReactGA from 'react-ga'
-
-import Defalult from './container/Default'
-import About from './pages/About'
-import Page from './pages/Pages'
-import Frontpage from './pages/Frontpage'
-import Posts from './pages/Posts'
-import PostsDetail from './pages/PostsDetail'
-import NoMatch from './pages/NoMatch'
+import Root from './containers/Root'
+import Frontpage from './containers/Frontpage'
+import Archive from './containers/Archive'
+import Single from './containers/Single'
+import Page from './containers/Page'
+import NoMatch from './containers/NoMatch'
 
 ReactGA.initialize('UA-000000-01')
 
 function logPageView () {
-  console.log(`logPageView: ${window.location.pathname}`)
   ReactGA.set({ page: window.location.pathname })
   ReactGA.pageview(window.location.pathname)
 }
 
-const Routes = () => {
+const Routes = ({ history }) => {
   return (
-    <Router history={browserHistory} onUpdate={logPageView} key={Math.random()}>
-      <Route path='/' component={Defalult}>
+    <Router history={history} onUpdate={logPageView} key={Math.random()}>
+      <Route path='/' component={Root}>
         <IndexRoute component={Frontpage} />
-        <Route path='about' component={About} />
         <Route path='sample-page' component={Page} />
-        <Route path='archives' component={Posts} />
-        <Route path='archives/:id' component={PostsDetail} />
+        <Route path='archives' component={Archive} />
+        <Route path='archives/:id' component={Single} />
         <Route path='*' component={NoMatch} />
       </Route>
     </Router>

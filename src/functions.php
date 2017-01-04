@@ -24,7 +24,7 @@ class Main {
 
 		$wp_parameters = array(
 		  'SITE_TITLE' => get_bloginfo('name'),
-		  'DESCRIPTION' => get_bloginfo('description'),
+		  'SITE_DESCRIPTION' => get_bloginfo('description'),
 		  'SITE_URL' => get_site_url(),
 		  'API' => get_site_url() . '/wp-json/',
 			'POSTS_PER_PAGE' => get_option('posts_per_page'),

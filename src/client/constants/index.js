@@ -1,1 +1,13 @@
-export const WP_PARAMS = global.WP_PARAMETERS
+const WP_PARAMS = global.WP_PARAMETERS
+
+export const WP_URL = WP_PARAMS.API
+export const WP_SITE_TITLE = WP_PARAMS.SITE_TITLE
+export const WP_SITE_DESCRIPTION = WP_PARAMS.SITE_DESCRIPTION
+export const WP_API = WP_PARAMS.API
+export const WP_PAGE_ON_FRONT = WP_PARAMS.PAGE_ON_FRONT
+export const WP_POSTS_PER_PAGE = WP_PARAMS.POSTS_PER_PAGE
+
+export const GET_FRONTPAGE = 'GET_FRONTPAGE'
+export const GET_PAGE = 'GET_PAGE'
+export const GET_ARCHIVES = 'GET_ARCHIVES'
+export const GET_SINGLE = 'GET_SINGLE'
