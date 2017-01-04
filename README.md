@@ -6,17 +6,19 @@
 
 - [x] Babel
 - [x] Browsersync
-- [ ] CSS Modules or CSS in JS
+- [ ] CSS-Modules or CSS in JS
+- [x] node-wpapi
 - [x] React
 - [x] React Hot Module Reload
 - [x] React Routor
-- [ ] Redux
+- [x] React Routor Redux
+- [x] Redux
+- [x] Redux DevTool
 - [x] Standard
 - [x] WordPress
 - [x] webpack
 - [x] VCCW
 - [x] yarn
-
 
 ## Initial setup
 
@@ -37,7 +39,7 @@ $ cd wp-react-spa-boilerplate
 **3.**
 
 ```
-$ yarn run setup
+$ yarn setup
 ```
 
 This command also installs [VCCW](http://vccw.cc/).
@@ -83,13 +85,13 @@ This command also installs [VCCW](http://vccw.cc/).
 ## Usage
 
 ```
-$ yarn run start
+$ yarn start
 ```
 
 Production (compress)
 
 ```
-$ yarn run production
+$ yarn build
 ```
 
 ## License
