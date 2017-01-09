@@ -1,28 +1,59 @@
-import { GET_FRONTPAGE, GET_ARCHIVES, GET_PAGE, GET_SINGLE } from '../constants'
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+import {
+  REQUEST_API,
+  RECEIVE_ARCHIVES,
+  RECEIVE_PAGE
+} from '../constants'
 
-export const post = (state = {}, action) => {
-  let type = action.type
-  if (type === GET_FRONTPAGE || type === GET_PAGE || type === GET_SINGLE) {
-    const { id, title, content, loading } = action.payload
-    return Object.assign({}, state, {
-      id: id,
-      title: title,
-      content: content,
-      loading: loading
-    })
+function isLoading (state = true, action) {
+  switch (action.type) {
+    case REQUEST_API:
+      return true
+    case RECEIVE_ARCHIVES:
+    case RECEIVE_PAGE:
+      return false
+    default:
+      return state
   }
-  return state
 }
 
-export const archive = (state = { posts: [] }, action) => {
-  if (action.type === GET_ARCHIVES) {
-    const {pageNum, totalPages, posts, loading} = action.payload
-    return Object.assign({}, state, {
-      posts: posts,
-      pageNum: pageNum,
-      totalPages: parseInt(totalPages),
-      loading: loading
-    })
+function archive (state = { posts: [] }, action) {
+  switch (action.type) {
+    case RECEIVE_ARCHIVES:
+      return Object.assign({}, state, {
+        posts: action.payload.posts,
+        pageNum: action.payload.pageNum,
+        totalPages: parseInt(action.payload.totalPages)
+      })
+    default:
+      return state
   }
-  return state
 }
+
+function page (state = {}, action) {
+  switch (action.type) {
+    case RECEIVE_PAGE:
+      return Object.assign({}, state, {
+        id: action.payload.id,
+        title: action.payload.title,
+        content: action.payload.content
+      })
+    default:
+      return state
+  }
+}
+
+const data = combineReducers({
+  isLoading,
+  page: page,
+  archive: archive,
+  single: page
+})
+
+const rootReducer = combineReducers({
+  data,
+  routing: routerReducer
+})
+
+export default rootReducer

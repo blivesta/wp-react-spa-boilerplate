@@ -7,12 +7,9 @@ import Loader from '../components/Loader'
 
 class Frontpage extends Component {
   componentWillMount () {
-    const {
-      getFrontpage,
-      loading
-    } = this.props
+    const { getFrontpage } = this.props
 
-    getFrontpage(loading)
+    getFrontpage()
   }
 
   render () {
@@ -29,11 +26,12 @@ class Frontpage extends Component {
 }
 
 function mapStateToProps (state) {
+  const { page, isLoading } = state.data
   return {
-    id: state.post.id,
-    title: state.post.title,
-    content: state.post.content,
-    loading: state.post.loading
+    id: page.id,
+    title: page.title,
+    content: page.content,
+    loading: isLoading
   }
 }
 

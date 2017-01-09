@@ -9,11 +9,10 @@ class Single extends Component {
   componentWillMount () {
     const {
       getSingle,
-      params,
-      loading
+      params
     } = this.props
 
-    getSingle(params, loading)
+    getSingle(params)
   }
 
   render () {
@@ -32,11 +31,12 @@ class Single extends Component {
 }
 
 function mapStateToProps (state) {
+  const { single, isLoading } = state.data
   return {
-    id: state.post.id,
-    title: state.post.title,
-    content: state.post.content,
-    loading: state.post.loading
+    id: single.id,
+    title: single.title,
+    content: single.content,
+    loading: isLoading
   }
 }
 

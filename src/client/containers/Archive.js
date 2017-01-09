@@ -10,12 +10,11 @@ class Archive extends Component {
     const {
       getArchive,
       pageNum = 1,
-      loading = true,
       totalPages,
       posts
     } = this.props
 
-    getArchive(loading, pageNum, totalPages, posts)
+    getArchive(pageNum, totalPages, posts)
   }
 
   render () {
@@ -37,11 +36,12 @@ class Archive extends Component {
 }
 
 function mapStateToProps (state) {
+  const { archive, isLoading } = state.data
   return {
-    posts: state.archive.posts,
-    pageNum: state.archive.pageNum,
-    totalPages: state.archive.totalPages,
-    loading: state.archive.loading
+    posts: archive.posts,
+    pageNum: archive.pageNum,
+    totalPages: archive.totalPages,
+    loading: isLoading
   }
 }
 

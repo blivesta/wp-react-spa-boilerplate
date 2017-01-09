@@ -7,7 +7,6 @@ export const WP_API = WP_PARAMS.API
 export const WP_PAGE_ON_FRONT = WP_PARAMS.PAGE_ON_FRONT
 export const WP_POSTS_PER_PAGE = WP_PARAMS.POSTS_PER_PAGE
 
-export const GET_FRONTPAGE = 'GET_FRONTPAGE'
-export const GET_PAGE = 'GET_PAGE'
-export const GET_ARCHIVES = 'GET_ARCHIVES'
-export const GET_SINGLE = 'GET_SINGLE'
+export const REQUEST_API = 'REQUEST_API'
+export const RECEIVE_ARCHIVES = 'RECEIVE_ARCHIVES'
+export const RECEIVE_PAGE = 'RECEIVE_PAGE'

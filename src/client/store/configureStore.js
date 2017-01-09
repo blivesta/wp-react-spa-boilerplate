@@ -1,23 +1,15 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { persistState } from 'redux-devtools'
-import thunkMiddleware from 'redux-thunk'
+import thunk from 'redux-thunk'
 import DevTools from '../components/DevTools'
 
 export default function configureStore (reducer, initialState) {
   let store
-  const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore)
+  const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
   if (process.env.NODE_ENV === 'production') {
     store = createStoreWithMiddleware(reducer, initialState)
   } else {
-    const enhancer = compose(
-      DevTools.instrument(),
-      persistState(
-        window.location.href.match(
-          /[?&]debug_session=([^&#]+)\b/
-        )
-      )
-    )
+    const enhancer = compose(DevTools.instrument())
 
     store = createStoreWithMiddleware(reducer, initialState, enhancer)
 

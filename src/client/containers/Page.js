@@ -9,11 +9,10 @@ class Page extends Component {
   componentWillMount () {
     const {
       getPage,
-      route,
-      loading
+      route
     } = this.props
 
-    getPage(route, loading)
+    getPage(route)
   }
 
   render () {
@@ -30,11 +29,12 @@ class Page extends Component {
 }
 
 function mapStateToProps (state) {
+  const { page, isLoading } = state.data
   return {
-    id: state.post.id,
-    title: state.post.title,
-    content: state.post.content,
-    loading: state.post.loading
+    id: page.id,
+    title: page.title,
+    content: page.content,
+    loading: isLoading
   }
 }
 
