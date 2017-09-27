@@ -93,7 +93,3 @@ Production (compress)
 ```
 $ yarn build
 ```
-
-## License
-
-Released under the MIT license.
